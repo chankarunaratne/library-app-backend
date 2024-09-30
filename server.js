@@ -1,11 +1,15 @@
 // Import Express module
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 // Define the port for the server to listen on
 const port = 8080;
 
-// Middleware to parse JSON bodies in requests
+// enable cors
+app.use(cors());
+
+// parse JSON bodies in requests
 app.use(express.json());
 
 // A basic route to confirm the server is running
@@ -68,3 +72,5 @@ app.get('/books/search/:name', (req, res) => {
 app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+
